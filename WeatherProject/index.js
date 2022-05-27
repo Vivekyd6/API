@@ -23,8 +23,8 @@ app.get("/",function(req,res){
 });
 
 app.post("/",function(req,res){
-    console.log(res.body.cityName);
-});
+    console.log(req.body.cityName);
+})
 
 app.listen(3000,function(){
     console.log("Server is running on port 3000");
