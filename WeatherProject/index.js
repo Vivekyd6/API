@@ -7,10 +7,15 @@ const app = express();
 
 
 app.get("/",function(req,res){
-    const url ="https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=8540560b0d13912db6ef32a2cca4458f";
+    const url ="https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=8540560b0d13912db6ef32a2cca4458f";
 
     https.get(url,function(resp){
-        console.log(resp);
+        console.log(resp.statusCode);
+
+
+        resp.on("date",function(data){
+            console.log(data);
+       }) 
     })
     res.send("Server is up and running");
 })
