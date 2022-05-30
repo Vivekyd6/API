@@ -31,19 +31,19 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body class = "text-center">
 
     <div class="Container">
-
-      <form class="form-signin">
+      <form action="/" class="form-signin" method="post">
         <h2 class="form-signin-heading">Signup to My NewsLetter</h2>
         <!-- <label for="inputEmail" class="sr-only">Email address</label> -->
-        <input type="text"  class="form-control" placeholder="First Name" required autofocus>
-        <input type="text" class="form-control" placeholder="Last Name" required autofocus>
+        <input type="text" name = "fname" class="form-control" placeholder="First Name" required autofocus>
+        <input type="text" name = "lname" class="form-control" placeholder="Last Name" required autofocus>
 
         <!-- <label for="inputPassword" class="sr-only">Password</label> -->
-        <input type="email" class="form-control" placeholder="Email" required>
+        <input type="email" name = "email" class="form-control" placeholder="Email" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign me Up!</button>
+        <p class="mt-5 mb-3 text-muted">&copy;Vivek Yadav</p>
       </form>
 
     </div> <!-- /container -->
