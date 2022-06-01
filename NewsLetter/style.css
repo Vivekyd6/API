@@ -3,24 +3,22 @@ body {
     padding-bottom: 40px;
     background-color: #eee;
   }
-  .Container{
-    width: 20%;
-    height: 30%;
+.container{
+    /* height: 30%;
+    width: 50%;
+    margin-top: 39%;
+    margin-left: 25%; */
+    width: 469px;
+    /* margin: 40% auto; */
   }
   
-  .form-signin {
+  .form-sign {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
   }
-  .form-signin .form-signin-heading,
-  .form-signin .checkbox {
-    margin-bottom: 10px;
-  }
-  .form-signin .checkbox {
-    font-weight: normal;
-  }
-  .form-signin .form-control {
+ 
+  .form-sign{
     position: relative;
     height: auto;
     -webkit-box-sizing: border-box;
@@ -29,7 +27,7 @@ body {
     padding: 10px;
     font-size: 16px;
   }
-  .form-signin .form-control:focus {
+  .form-sign, .form-control:focus {
     z-index: 2;
   }
   .top {
