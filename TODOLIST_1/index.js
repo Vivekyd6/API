@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const { use } = require("express/lib/application");
 
 const app = express();
 
@@ -7,6 +8,7 @@ app.set('view engine','ejs');
 var items = ["Buy Food","Cook Food","Get Food"];
 
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));  
 
 app.get("/",function(req,res){
     // res.sendFile(__dirname+"/index.html");
