@@ -42,6 +42,12 @@ const item4 = new Item({
 
 const defaultItems = [item1,item2,item3];
 
+const listSchema = {
+  name : String,
+  items : [itemsSchema]
+};
+const List = mongoose.model("List",listSchema)
+
 app.get("/", function (req, res) {
       // res.sendFile(__dirname+"/index.html");
       // javascript object :-  
@@ -98,6 +104,18 @@ app.get("/", function (req, res) {
       });
       item.save();
       res.redirect("/");
+    })
+
+    app.get("/:customListName",function(req,res){
+      // console.log(req.params.customListName);
+      const customListName= req.params.customListName;
+      
+      const list = new List({
+        name :customListName,
+        items :defaultItems
+      });
+
+      list.save();
     })
 
 
