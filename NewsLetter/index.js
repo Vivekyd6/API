@@ -55,6 +55,9 @@ app.post("/", function (req, res) {
     console.log(firstName, lastName, email);
 })
 
+app.get("/:customListName",function(req,res){
+    console.log(req.body.customListName);
+})
 app.post("/failure", function (req, res){
     res.redirect("/");
 })
