@@ -36,7 +36,7 @@ const item2 = new Item({
 });
 
 const item3 = new Item({
-  name: "Welcome to your todolist"
+  name: "Welcome to Web Development"
 });
 const item4 = new Item({
   name: "Welcome  your todolist"
@@ -77,7 +77,7 @@ app.get("/", function (req, res) {
         if (err) {
           console.log(err);
         } else {
-          console.log("Successfully Saved Default items to database ");
+          // console.log("Successfully Saved Default items to database ");
         }
       });
       res.redirect("/");
@@ -88,27 +88,6 @@ app.get("/", function (req, res) {
     }
   });
 });
-
-
-
-app.post("/", function (req, res) {
-  const itemName = req.body.newItem;
-  const listName = req.body.list;
-  const item = new Item({
-    name: itemName
-  });
-  if (listName === "Today") {
-    item.save();
-    console.log(item);
-    res.redirect("/");
-  } else {
-    List.findOne({ name: listName }, function (err, foundList) {
-      foundList.items.push(item);
-      foundList.save();
-      res.redirect("/" + listName);
-    });
-  }
-  });
 
 app.get("/:customListName", function (req, res) {
   console.log(req.params.customListName);
@@ -132,6 +111,26 @@ app.get("/:customListName", function (req, res) {
   });
 });
 
+app.post("/", function(req, res){
+
+  const itemName = req.body.newItem;
+  const listName = req.body.list;
+
+  const item = new Item({
+    name: itemName
+  });
+
+  if (listName === "Today"){
+    item.save();
+    res.redirect("/");
+  } else {
+    List.findOne({name: listName}, function(err, foundList){
+      foundList.items.push(item);
+      foundList.save();
+      res.redirect("/" + listName);
+    });
+  }
+});
 
 
 app.post("/delete", function (req, res) {
@@ -158,6 +157,9 @@ app.post("/delete", function (req, res) {
     );
   }
 });
+
+
+
 
 app.listen(3000, function () {
   console.log("server is running on port 3000");
