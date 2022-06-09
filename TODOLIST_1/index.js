@@ -89,13 +89,14 @@ app.get("/", function (req, res) {
   });
 });
 
+
+
 app.post("/", function (req, res) {
   const itemName = req.body.newItem;
   const listName = req.body.list;
   const item = new Item({
     name: itemName
   });
-
   if (listName === "Today") {
     item.save();
     console.log(item);
@@ -130,6 +131,8 @@ app.get("/:customListName", function (req, res) {
     }
   });
 });
+
+
 
 app.post("/delete", function (req, res) {
   console.log(req.body);
